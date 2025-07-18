@@ -1,196 +1,282 @@
-# Streamlyze 🎬
+# Streamlyze Backend API 🚀
 
-A full-stack streaming service analytics platform that combines React frontend with Spring Boot backend to help users compare streaming plans, analyze web content, and perform advanced text processing operations.
+A powerful Spring Boot backend that provides comprehensive APIs for streaming service analytics, web crawling, and advanced text processing. This server implements sophisticated algorithms including AVL trees, Trie data structures, and edit distance calculations.
 
-## 🚀 Features
+> **Note**: This is the backend repository. The React frontend application can be found at: [Streamlyze Frontend Repository](https://github.com/kunal070/Streaming-Plan-Recommendation-frontend)
 
-### 📊 Plan Comparison & Analytics
-- **Multi-Platform Comparison**: Compare Netflix, Prime Video, Disney+, Discovery+, Paramount+, and YouTube plans
-- **Smart Recommendations**: Get AI-powered plan suggestions based on price or video quality preferences
-- **Real-time Scraping**: Live data extraction from streaming service websites using Selenium
+## 🏗️ Architecture Overview
+
+This backend serves as the data processing engine for the Streamlyze platform, offering:
+- RESTful APIs for streaming service data
+- Advanced web crawling capabilities
+- Text processing and analysis algorithms
+- Real-time data scraping with Selenium
+- File processing and data extraction
+
+## 🚀 Key Features
+
+### 📊 Streaming Service APIs
+- **Live Data Scraping**: Real-time Netflix plan extraction using Selenium WebDriver
+- **CSV-Based Data**: Efficient plan comparison across multiple streaming platforms
+- **Smart Recommendations**: Algorithm-driven plan suggestions based on user preferences
 
 ### 🕷️ Advanced Web Crawling
-- **Intelligent Web Crawler**: Extract and analyze content from websites with configurable depth limits
-- **Keyword Frequency Analysis**: Count keyword occurrences across crawled pages using AVL trees
-- **URL Discovery**: Automatically discover and save linked pages for comprehensive analysis
+- **Intelligent Crawler**: Configurable depth web crawling with JSoup integration
+- **Content Analysis**: Extract and analyze text content from crawled pages
+- **URL Management**: Automatic discovery and storage of linked pages
 
-### 🔍 Search & Text Processing
-- **Inverted Indexing**: Fast search capabilities using Trie data structures
-- **Spell Checking**: Edit distance-based spell correction with word suggestions
-- **Text Extraction**: Extract URLs, emails, phone numbers, and dates from uploaded files
-- **Page Ranking**: Rank pages by keyword relevance using custom algorithms
+### 🔍 Search & Text Processing Algorithms
+- **AVL Trees**: Self-balancing binary search trees for O(log n) keyword frequency counting
+- **Trie Implementation**: Prefix trees for fast inverted indexing and search
+- **Edit Distance**: Levenshtein distance algorithm for spell checking
+- **Hash Maps**: Efficient word frequency tracking
 
-### 🛠️ Technical Features
-- **Data Structures**: Implementation of AVL trees, Tries, and Hash maps for efficient data processing
-- **File Processing**: Handle text file uploads and content analysis
-- **RESTful APIs**: Comprehensive backend API with proper CORS configuration
-- **Responsive UI**: Modern React interface with loading states and error handling
+### 📁 File Processing
+- **Text Analysis**: Extract URLs, emails, phone numbers, and dates using regex patterns
+- **Multi-format Support**: Process uploaded text files with comprehensive data extraction
 
-## 🏗️ Tech Stack
+## 🛠️ Tech Stack
 
-### Frontend
-- **React.js** - Component-based UI framework
-- **React Router** - Client-side routing
-- **Axios** - HTTP client for API communication
-- **CSS3** - Custom styling with animations
+### Core Framework
+- **Spring Boot 3.3.5** - Modern Java-based backend framework
+- **Spring Web** - RESTful web services
+- **Spring DevTools** - Development productivity tools
 
-### Backend
-- **Spring Boot 3.3.5** - Java-based backend framework
-- **Selenium WebDriver** - Web scraping and automation
-- **JSoup** - HTML parsing and manipulation
-- **Apache Commons CSV** - CSV file processing
-- **Jackson** - JSON data binding
+### Web Scraping & Processing
+- **Selenium WebDriver 4.26.0** - Browser automation for live data scraping
+- **WebDriverManager 5.5.3** - Automatic driver management
+- **JSoup 1.18.1** - HTML parsing and manipulation
 
-### Data Structures & Algorithms
-- **AVL Trees** - Self-balancing binary search trees for word frequency
-- **Trie** - Prefix trees for inverted indexing
-- **Hash Maps** - Fast keyword frequency tracking
-- **Edit Distance** - Levenshtein distance for spell checking
+### Data Processing
+- **Apache Commons CSV 1.10.0** - CSV file processing
+- **Jackson Databind** - JSON data binding and serialization
+
+### Algorithms & Data Structures
+- **Custom AVL Tree** - Self-balancing BST implementation
+- **Trie Data Structure** - Prefix tree for efficient string operations
+- **Edit Distance** - Dynamic programming implementation
+- **Hash Maps** - Built-in Java collections for frequency counting
 
 ## 📦 Installation
 
 ### Prerequisites
 - Java 17 or higher
-- Node.js 14+ and npm
-- Chrome browser (for Selenium)
+- Maven 3.6+
+- Chrome browser (for Selenium WebDriver)
 
-### Backend Setup
+### Setup
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/streamlyze.git
-   cd streamlyze
-   ```
-
-2. **Install backend dependencies**
-   ```bash
-   mvn clean install
-   ```
-
-3. **Add required files**
-   - Place `Combined.csv` in the root directory (contains streaming plan data)
-   - Add `words.txt` file for spell checking functionality
-
-4. **Run the Spring Boot application**
-   ```bash
-   mvn spring-boot:run
-   ```
-   Server will start on `http://localhost:8080`
-
-### Frontend Setup
-1. **Navigate to frontend directory**
-   ```bash
-   cd frontend
+   git clone https://github.com/your-username/streamlyze-backend.git
+   cd streamlyze-backend
    ```
 
 2. **Install dependencies**
    ```bash
-   npm install
+   mvn clean install
    ```
 
-3. **Start the development server**
+3. **Add required data files**
    ```bash
-   npm start
+   # Place these files in the root directory:
+   # - Combined.csv (streaming plans data)
+   # - words.txt (dictionary for spell checking)
    ```
-   Application will open at `http://localhost:3000`
 
-## 📝 Usage Guide
+4. **Run the application**
+   ```bash
+   mvn spring-boot:run
+   ```
 
-### Plan Comparison
-1. Navigate to Netflix, Prime, or Disney+ sections
-2. View real-time scraped plan data with pricing and features
-3. Use "Best Plan" feature to get personalized recommendations
+5. **Verify installation**
+   Server will start on `http://localhost:8080`
+   Test with: `GET http://localhost:8080/api/netflix/plans`
 
-### Web Crawling & Analysis
-1. **Web Crawler**: Enter a URL to crawl up to 10 linked pages
-2. **Keyword Analysis**: Search for specific terms across crawled content
-3. **Frequency Counting**: Get detailed keyword frequency reports
-
-### Advanced Search Features
-1. **Page Ranking**: Search and rank pages by keyword relevance
-2. **Inverted Indexing**: Fast search with position-based results
-3. **Spell Checking**: Get word suggestions for misspelled queries
-
-### Text Processing
-1. Upload `.txt` files for analysis
-2. Extract structured data (URLs, emails, phone numbers, dates)
-3. View organized results in separate categories
+### Frontend Integration
+This backend is designed to work with the Streamlyze React frontend:
+[Streamlyze Frontend Repository](https://github.com/kunal070/Streaming-Plan-Recommendation-frontend)
 
 ## 🏗️ Project Structure
 
 ```
-streamlyze/
-├── src/main/java/com/advance/real/
-│   ├── controller/           # REST API endpoints
-│   │   ├── NetflixPlansController.java
-│   │   ├── BestPlansController.java
-│   │   ├── WebCrawlerController.java
-│   │   └── universal.java
-│   ├── services/            # Business logic services
-│   │   └── OttScraperService.java
-│   └── RealApplication.java # Main Spring Boot application
-├── frontend/src/
-│   ├── components/          # React components
-│   │   ├── Netflix.js
-│   │   ├── BestPlan.js
-│   │   ├── Web.js
-│   │   ├── Page.js
-│   │   └── Invert.js
-│   ├── styles/             # CSS stylesheets
-│   └── App.js              # Main React app
-├── Combined.csv            # Streaming plans database
-├── words.txt              # Dictionary for spell checking
-└── pom.xml                # Maven dependencies
+src/main/java/com/advance/real/
+├── controller/                  # REST API endpoints
+│   ├── NetflixPlansController.java    # Netflix live scraping
+│   ├── BestPlansController.java       # Plan recommendation logic
+│   ├── StreamingPlansController.java  # CSV-based plan APIs
+│   ├── WebCrawlerController.java      # Web crawling & algorithms
+│   ├── universal.java                 # File processing & utilities
+│   ├── PlanDTO.java                   # Data transfer objects
+│   ├── CrawlRequest.java              # Request models
+│   └── WebConfig.java                 # CORS configuration
+├── services/                    # Business logic
+│   └── OttScraperService.java         # Spell checking algorithms
+├── RealApplication.java         # Main Spring Boot application
+└── resources/
+    └── application.properties   # Configuration settings
 ```
 
-## 🔧 API Endpoints
+## 🔧 API Documentation
 
-### Plan Management
-- `GET /api/netflix/plans` - Get Netflix plans (live scraping)
-- `GET /api/Disney/plans` - Get Disney+ plans from CSV
-- `GET /api/Prime/plans` - Get Prime Video plans from CSV
-- `GET /api/best/price` - Get best plan by price
-- `GET /api/best/videoquality` - Get best plan by video quality
+### Plan Management APIs
+```bash
+# Get live Netflix plans (Selenium scraping)
+GET /api/netflix/plans
 
-### Web Crawling
-- `POST /crawl` - Start web crawling process
-- `GET /crawl/frequency-count` - Get keyword frequency using AVL trees
-- `GET /api/netflix/keyword-frequency` - Analyze keyword frequency in crawled pages
+# Get streaming plans by service (CSV data)
+GET /api/Disney/plans
+GET /api/Prime/plans
+GET /api/Paramount/plans
+GET /api/YouTube/plans
+GET /api/Discovery/plans
 
-### Search & Text Processing
-- `GET /crawl/words` - Get spell-check suggestions
-- `GET /crawl/inverted-index` - Search using inverted index (Trie)
-- `POST /api/page-ranking` - Rank pages by keyword relevance
-- `POST /api/analyze-file` - Extract data from uploaded text files
+# Get best plan recommendations
+GET /api/best/price          # Best plan by price
+GET /api/best/videoquality   # Best plan by video quality
+```
 
-## 🎯 Key Algorithms
+### Web Crawling APIs
+```bash
+# Start web crawling
+POST /crawl
+Body: {"url": "https://example.com"}
 
-| Algorithm | Use Case | Implementation |
-|-----------|----------|----------------|
-| **AVL Trees** | Keyword frequency counting | Self-balancing BST for O(log n) operations |
-| **Trie** | Inverted indexing | Prefix trees for fast pattern matching |
-| **Edit Distance** | Spell checking | Levenshtein distance for word similarity |
-| **Hash Maps** | Frequency tracking | O(1) lookup for word counts |
-| **Brute Force** | Page ranking | Linear search across file contents |
+# Keyword frequency using AVL trees
+GET /crawl/frequency-count?keyword=example
+
+# Keyword frequency in crawled pages
+GET /api/netflix/keyword-frequency?keyword=example
+```
+
+### Search & Text Processing APIs
+```bash
+# Spell checking with edit distance
+GET /crawl/words?word=misspelled
+GET /crawl/spell-checking?word=misspelled
+
+# Inverted indexing with Trie
+GET /crawl/inverted-index?keyword=search
+
+# Page ranking algorithm
+POST /api/page-ranking?word=keyword
+
+# Search frequency tracking
+GET /api/search-frequency?word=keyword
+
+# File analysis and data extraction
+POST /api/analyze-file
+Content-Type: multipart/form-data
+Body: file (text file)
+```
+
+## 🎯 Algorithm Implementations
+
+### AVL Tree (Keyword Frequency)
+```java
+// Self-balancing binary search tree for O(log n) operations
+class AVLNode {
+    String word;
+    int count;
+    int height;
+    AVLNode left, right;
+}
+```
+**Use Case**: Efficient keyword frequency counting in web crawling
+**Complexity**: O(log n) insert, search, delete
+
+### Trie (Inverted Indexing)
+```java
+// Prefix tree for fast pattern matching
+class TrieNode {
+    Map<Character, TrieNode> children;
+    List<Position> positions;
+}
+```
+**Use Case**: Fast text search and inverted indexing
+**Complexity**: O(m) where m is the length of the search term
+
+### Edit Distance (Spell Checking)
+```java
+// Levenshtein distance for word similarity
+public static int calculateEditDistance(String word1, String word2)
+```
+**Use Case**: Spell correction and word suggestions
+**Complexity**: O(n × m) dynamic programming solution
+
+## 📁 Required Files
+
+### Combined.csv
+Contains streaming service plan data with columns:
+- plan, price, ad-supported, videoQuality, spatialAudio
+- watchDevice, supportedDownloadDevices, streamingService, link
+
+### words.txt
+Dictionary file for spell checking functionality
+- One word per line
+- Used for edit distance calculations
+- Required for spell checking APIs
+
+## 🔧 Configuration
+
+### Application Properties
+```properties
+spring.application.name=real
+server.port=8080
+spring.devtools.restart.enabled=true
+logging.level.org.springframework.web=DEBUG
+```
+
+### CORS Configuration
+Configured to allow all origins for development:
+```java
+config.addAllowedOriginPattern("*");
+config.addAllowedMethod("*");
+config.addAllowedHeader("*");
+```
+
+## 🚀 Performance Features
+
+### Caching & Optimization
+- **File Caching**: Crawled content stored locally for repeated analysis
+- **Efficient Data Structures**: AVL trees and Tries for optimal performance
+- **Batch Processing**: Handle multiple files simultaneously
+
+### Scalability
+- **Configurable Limits**: Adjustable crawling depth and page limits
+- **Memory Management**: Efficient handling of large text files
+- **Error Handling**: Robust exception handling for web scraping
+
+## 🧪 Testing
+
+Run tests with:
+```bash
+mvn test
+```
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+3. Implement your changes with proper tests
+4. Commit your changes (`git commit -m 'Add amazing feature'`)
+5. Push to the branch (`git push origin feature/amazing-feature`)
+6. Open a Pull Request
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## 🔗 Related Repositories
+
+- **Frontend Application**: [Streamlyze Frontend](https://github.com/kunal070/Streaming-Plan-Recommendation-frontend)
+
 ## 🙏 Acknowledgments
 
-- Spring Boot team for excellent framework documentation
-- React community for comprehensive guides
+- Spring Boot team for excellent framework
 - Selenium project for web automation capabilities
 - Apache Commons for CSV processing utilities
+- Algorithm implementations inspired by classic CS textbooks
 
 ---
 
-**Note**: Ensure Chrome browser is installed for web scraping functionality. The application requires both frontend and backend servers to be running simultaneously for full functionality.
+**Note**: This backend server must be running on port 8080 for the frontend application to function properly. Ensure Chrome browser is installed for Selenium web scraping features.
