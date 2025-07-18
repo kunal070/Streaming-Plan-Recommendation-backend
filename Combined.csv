@@ -1,0 +1,14 @@
+plan,price,ad-supported,videoQuality,spatialAudio,watchDevice,supportedDownloadDevices,streamingService,link
+Standard with ads,5.99 CAD/month,Yes,1080p (Full HD),No,2,1,Netflix,https://help.netflix.com/en/node/24926
+Standard,16.49 CAD/month,No,1080p (Full HD),No,2,1,Netflix,https://help.netflix.com/en/node/24927
+Premium,20.99 CAD/month,No,4K (Ultra HD) + HDR,Yes,4,2,Netflix,https://help.netflix.com/en/node/24928
+Basic,8.99 CAD/month,Yes,1080p (Full HD),No,2,1,Disney,https://www.disneyplus.com/commerce/welcome-back?pinned=true
+Standard,11.99 CAD/month,No,4K (Ultra HD),Yes,4,2,Disney,https://www.disneyplus.com/commerce/welcome-back?pinned=true
+Premium,18.99CAD/month,No,4K (Ultra HD),Yes,6,4,Disney,https://www.disneyplus.com/commerce/welcome-back?pinned=true
+Standard with ads,5.99 CAD/month,Yes,1080p (Full HD),Yes,No Limitation,No Limitation,Discovery+,https://auth.discoveryplus.com/ca/product?route=ad-lite
+Premium,8.99 CAD/month,No,1080p (Full HD),Yes,No Limitation,No Limitation,Discovery+,https://auth.discoveryplus.com/ca/product?route=ad-free
+Standard,5.49 CAD/month,No,1080p (Full HD),Yes,No Limitation,No Limitation,Paramount+,https://www.paramountplus.com/ca/account/signup/tier/
+Premium,6.99 CAD/month,No,4K (Ultra HD) ,Yes,No Limitation,No Limitation,Paramount+,https://www.paramountplus.com/ca/account/signup/tier/
+Individual,12.99 CAD/month,No,4K (Ultra HD) ,Yes,1,1,Youtube,
+Family,$22.99 CAD/month,No,4K (Ultra HD) ,Yes,5,5,Youtube,
+Student,$7.99 CAD/month,No,4K (Ultra HD) ,Yes,1,1,Youtube,
